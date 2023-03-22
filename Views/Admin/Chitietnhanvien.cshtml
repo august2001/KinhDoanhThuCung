@@ -1,0 +1,89 @@
+﻿@model KinhDoanhThuCung.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Chitietnhanvien";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 40px; color: red; text-align: center">THÔNG TIN NHÂN VIÊN</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Mã nhân viên:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MANV)
+        </dd>
+        <dt>
+            Họ tên nhân viên:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            Giới tính:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITINH)
+        </dd>
+
+        <dt>
+           Ngày sinh:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+           Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+           Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Chức vụ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUCVU)
+        </dd>
+
+        <dt>
+            Lương:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUONG)
+        </dd>
+
+        <dt>
+            Chứng minh nhân dân:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suanhanvien", new { id = Model.MANV }) |
+    @Html.ActionLink("TRỞ VỀ", "NhanVien")
+</p>

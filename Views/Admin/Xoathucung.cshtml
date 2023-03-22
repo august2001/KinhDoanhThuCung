@@ -1,0 +1,73 @@
+﻿@model KinhDoanhThuCung.Models.THUCUNG
+
+@{
+    ViewBag.Title = "Xoathucung";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center" ">XÁC NHẬN THÔNG TIN THÚ CƯNG CẦN XÓA</h2>
+
+<h3>Bạn có quyết định sẽ xóa thú cưng này?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIONG)
+        </dd>
+
+        <dt>
+            Cân Nặng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANNANG)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLTON)
+        </dd>
+
+        <dt>
+            Đơn Giá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONGIA)
+        </dd>
+
+        <dt>
+            Nhà Cung Cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANCC)
+        </dd>
+
+        <dt>
+            Ảnh Thú Cưng:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhThuCung/"+Model.ANH)" width="100px" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("TRỞ VỀ","ThuCung")
+        </div>
+    }
+</div>

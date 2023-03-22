@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PettoKea Pet Home</title>
+   
+
+   <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/petshop.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="menu">
+                <div class="logo">
+                    <img src="~/HinhThuCung/logo.png" width="60px" height="60px"><span style="font-size:30px; padding-left:20px;color:#ffffff">KeaPet</span>
+
+                </div>
+                <div class="menu1">
+                    <li>
+                        <a href="" style="color: #090909;">LOẠI THÚ CƯNG  </a><a style="color:#ffffff">V</a>
+                        <ul class="sub-menu a">
+                            <li>  @Html.Action("Loai", "KDThuCung")</li>
+                        </ul>
+                    </li>
+                </div>
+
+
+                <div class="menu2">
+                    <li>
+                        <a href="" style="color: #090909;">NHÀ CUNG CẤP  </a><a style="color:#ffffff">V</a>
+                        <ul class="sub-menu b">
+                            <li> @Html.Action("NCC", "KDThuCung")</li>
+                        </ul>
+                    </li>
+                </div>
+                @using (Html.BeginForm("KetQuaTimKiem", "Search", FormMethod.Post))
+                {
+                    <div class="form-group form-inline">
+                        @Html.TextBox("SearchString", "", htmlAttributes: new { @class = "form-control" , @placeholder="Nhập vào từ khóa "})
+                        <input  style="font:bold" type="submit" class="btn btn-default" value="Tìm" />
+                    </div>
+                }
+            </div>
+            <nav>
+                <ul id="MenuItems">
+
+                    <li><a href="@Url.Action("Index","KDThuCung")"><span style="color: #090909;">TRANG CHỦ  </span><img src="~/HinhThuCung/home.png" width="30px" height="30px" ></a></li>
+                    <li><a href="@Url.Action("Dangnhap1","Nguoidung")"><span style="color: #090909;">ĐĂNG NHẬP  </span><img src="~/HinhThuCung/login.png" width="30px" height="30px"></a></li>
+                  
+                </ul>
+            
+                @Html.Action("GioHangPartial", "GioHang")
+            </nav>
+        </div>
+    </div>
+    <div class="big-container">
+        <div>
+            @RenderBody()
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9">
+
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row-footer">
+                <div class="footer-col-1">
+                    <h3>Tải ứng dụng của chúng tôi</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="~/HinhThuCung/play-store.png">
+                        <img src="~/HinhThuCung/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    @*<img src="~/HinhThuCung/logo.png" width="30px" height="30px" style="color:azure">*@
+                    <p>Mục đích của chúng tôi là Làm cho Nhiều người có thể tiếp cận được niềm vui và lợi ích của thể thao một cách bền vững.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li>Giới thiệu</li>
+                        <li>Tuyển dụng</li>
+                        <li>Quy chế hoạt động</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li style="font-size:15px;color:papayawhip" >Facebook: <a href="https://www.facebook.com/profile.php?id=100015849918524" target="_blank">Huỳnh Tuấn</a> </li>
+                        <li>SĐT: 0916378900</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family:Arial;
+    }
+
+    .header {
+        background-color:#ffffff;
+        height:100px;
+    }
+
+    .navbar {
+        display: flex;
+        padding: 20px;
+        background-color: #f6b11a;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+        padding-right: 50px;
+    }
+
+        nav ul {
+            display: inline-block;
+            list-style-type: none;
+            padding-top: 20px;
+        }
+
+            nav ul li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+    .logo {
+        float: left;
+        padding-left: 100px;
+      
+        
+        
+    }
+      
+    .big-container {
+        min-width: 1080px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .row {
+        margin-top: 50px;
+    }
+
+     .row-footer {
+      display: flex;
+        align-items: center;
+      flex-wrap: wrap;
+    justify-content: space-around;
+    }
+    
+    .footer {
+        background-color: black;
+        color: #8a8a8a;
+        font-size: 14px;
+        padding: 60px 0 20px;
+    }
+    
+        .footer p {
+            color: #8a8a8a;
+        }
+
+        .footer h3 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+    .footer-col-1,
+    .footer-col-2,
+    .footer-col-3,
+    .footer-col-4 {
+        min-width: 10px;
+        margin-bottom: 20px;
+    }
+
+    .footer-col-1 {
+        flex-basis: 30%;
+    }
+
+    .footer-col-2 {
+        flex: 1;
+        text-align: center;
+    }
+
+        .footer-col-2 img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+    .footer-col-3,
+    .footer-col-4 {
+        flex-basis: 12%;
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .app-logo {
+        margin-top: 20px;
+    }
+
+        .app-logo img {
+            width: 140px;
+        }
+
+
+
+    .sub-menu{
+        position:absolute;
+    
+        top:50px;
+        transition:0.3s;
+        visibility:hidden;
+    }
+    .menu li{
+        position:relative;
+    }
+    .menu li:hover .sub-menu{
+        visibility:visible;      
+        top:30px;
+        
+        
+    }
+    .menu {
+        display: flex;
+        text-align:center;
+      
+    }
+    .menu li{
+        font-size:15px;
+        list-style:none;
+        padding:20px;
+    }
+
+    a {
+        color: #333;
+        font-weight: bold;
+    }
+    p {
+        margin: 0 0 10px;
+        font-size: 30px;
+    }
+    
+  .menu1{
+      padding-left:70px;
+  }
+
+    .footer-col-3, .footer-col-4 {
+        flex-basis: 22%;
+        text-align: center;
+        font-size: 10px;
+    }
+    .header{
+        position:sticky;
+        top:0;
+        z-index:1020;
+    }
+    .footer-col-2 p{
+        font-size:12px;
+    }
+    .footer-col-1 h3 {
+        font-size: 12px;
+    }
+    .footer-col-1 p {
+        font-size: 12px;
+    }
+    .footer-col-3 h3 {
+        font-size: 12px;
+    }
+    .footer-col-4 h3 {
+        font-size: 12px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+        padding-top: 13px;
+    }
+    
+   
+</style>

@@ -1,0 +1,41 @@
+﻿@model KinhDoanhThuCung.Models.LOAI
+
+@{
+    ViewBag.Title = "Xoaloai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center" ">XÁC NHẬN THÔNG TIN LOẠI CẦN XÓA</h2>
+
+<h3>Bạn có muốn xóa thông tin loại?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALOAI)
+        </dd>
+        <dt>
+            Tên loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENLOAI)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("TRỜ VỀ", "Loaithucung")
+    </div>
+    }
+    @ViewData["Loi11"]
+</div>

@@ -1,0 +1,66 @@
+﻿@model KinhDoanhThuCung.Models.THUCUNG
+
+@{
+    ViewBag.Title = "Chitietthucung";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2  style="padding-top: 40px; color: red; text-align: center">THÔNG TIN CHI TIẾT THÚ CƯNG</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Mã Giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIONG)
+        </dd>
+
+        <dt>
+            Cân Nặng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CANNANG)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLTON)
+        </dd>
+
+        <dt>
+            Đơn Giá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONGIA)
+        </dd>
+
+        <dt>
+            Nhà Cung Cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANCC)
+        </dd>
+
+        <dt>
+            Ảnh Thú Cưng:
+        </dt>
+
+        <dd>
+           <img src="@Url.Content("~/HinhThuCung/"+Model.ANH)" width="100px"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suathucung", new { id = Model.MATC }) |
+    @Html.ActionLink("TRỞ VỀ", "ThuCung")
+</p>

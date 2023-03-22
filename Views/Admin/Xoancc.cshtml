@@ -1,0 +1,57 @@
+﻿@model KinhDoanhThuCung.Models.NCCGIONG
+
+@{
+    ViewBag.Title = "Xoancc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center" ">XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MANCC)
+        </dd>
+        <dt>
+            Tên nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+            Địa chỉ:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            Số điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <h3>Bạn có quyết định xóa nhà cung cấp này</h3>
+    <input type="submit" value="XÓA" class="btn btn-default" /> |
+    @Html.ActionLink("TRỞ VỀ", "Nhacungcap")
+</div>
+    }
+</div>

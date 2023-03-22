@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PettoKea Pet Home</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/petshop.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a class="navbar-brand" href="#">THÚ CƯNG</a>*@
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Quản Lý Loại Thú Cưng", "Loaithucung", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Nhà Cung Cấp", "Nhacungcap", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Thú Cung", "ThuCung", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Giống", "Giong", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Khách Hàng", "KhachHang", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Nhân Viên", "NhanVien", "Admin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Quản lý Hóa Đơn", "HoaDon", "Admin")
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+    </div>
+   
+    <!-- Page Content -->
+        <!-- /.container -->
+
+        <div class="container">
+
+            <hr>
+
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p style="text-align:center">KeaPet.tk</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
+        <!-- jQuery -->
+        <script src="~/Scripts/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+<style>
+    .col-md-3 {
+        background-color: green;
+    }
+
+    body {
+        background-color: paleturquoise;
+    }
+
+    .slide-image {
+        width: 100%;
+    }
+
+</style>

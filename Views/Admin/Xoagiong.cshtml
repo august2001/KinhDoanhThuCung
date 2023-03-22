@@ -1,0 +1,57 @@
+﻿@model KinhDoanhThuCung.Models.GIONG
+
+@{
+    ViewBag.Title = "Xoagiong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center" ">XÓA GIỐNG</h2>
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Mã giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIONG)
+        </dd>
+        <dt>
+           Mã loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALOAI)
+        </dd>
+
+        <dt>
+           Tên giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENGIONG)
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTAG)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <h3>Bạn có muốn xóa giống này?</h3>
+    <input type="submit" value="XÓA" class="btn btn-default" /> |
+    @Html.ActionLink("TRỜ VỀ", "Giong")
+</div>
+    }
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<KinhDoanhThuCung.Models.CTHOADONTHUCUNG>
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center">CHI TIẾT HÓA ĐƠN</h2>
+
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">Mã Thú Cưng</th>
+        <th style="width:200px">Số Lượng Mua</th>
+        <th style="width:200px">Đơn Giá</th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOLUONGMUA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DONGIA)
+            </td>
+            <td>
+            </td>
+        </tr>
+
+    }
+    <p>
+        @Html.ActionLink("<< TRỞ VỀ", "HoaDon")
+    </p>
+</table>

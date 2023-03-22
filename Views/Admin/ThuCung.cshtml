@@ -1,0 +1,77 @@
+﻿
+@using KinhDoanhThuCung.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<KinhDoanhThuCung.Models.THUCUNG>
+
+@{
+    ViewBag.Title = "ThuCung";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red; text-align: center">QUẢN LÝ THÔNG TIN THÚ CƯNG</h2>
+<p>
+    @Html.ActionLink("Thêm Mới", "Themmoithucung")
+</p>
+<table class="table" border="2">
+    <tr>
+        <th style="width:100px">Mã Thú Cưng</th>
+        <th style="width:200px">Mã Giống</th>
+        <th style="width:200px">Cân Nặng</th>
+        <th style="width:200px">Số Lượng Tồn</th>
+        <th style="width:200px">Đơn Giá</th>
+        <th style="width:200px">Mã Nhà Cung Cấp</th>
+        <th style="width:200px">Ảnh</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MATC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MAGIONG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CANNANG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SLTON)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DONGIA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MANCC)
+    </td>
+    <td>
+        <img src="@Url.Content("~/HinhThuCung/"+item.ANH)" height="50px" />
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Suathucung", new { id = item.MATC }) |
+        @Html.ActionLink("Chi tiết", "Chitietthucung", new { id = item.MATC }) |
+        @Html.ActionLink("Xóa", "Xoathucung", new { id = item.MATC })
+    </td>
+</tr>
+    }
+
+</table>
+@* Tạo liên kết cac trang*@
+<p style="text-align:center">Trang @(Model.PageCount<Model.PageNumber? 0:Model.PageNumber)/@Model.PageCount</p>
+<div class="MenuTrang" style="text-align:center">
+    @Html.PagedListPager(Model, page => Url.Action("ThuCung", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #333;
+    }
+</style>
+

@@ -1,0 +1,50 @@
+﻿@model KinhDoanhThuCung.Models.GIONG
+
+@{
+    ViewBag.Title = "Chitietgiong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top: 40px; color: red; text-align: center">CHI TIẾT GIỐNG</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIONG)
+        </dd>
+        <dt>
+            Mã loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MALOAI)
+        </dd>
+
+        <dt>
+            Tên giống:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENGIONG)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTAG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MAGIONG }) |*@
+    @Html.ActionLink("TRỞ VỀ", "Giong")
+</p>

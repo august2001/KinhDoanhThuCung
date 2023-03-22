@@ -1,0 +1,76 @@
+﻿@using KinhDoanhThuCung.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<KinhDoanhThuCung.Models.GIONG>
+
+@*@helper Truncate(string input, int length)
+{
+        if(input.Length<length)
+            {
+                @input
+            }
+         else
+            {
+                @input.Substring(0,length)<test>...</test>
+            }
+}*@
+@{
+    ViewBag.Title = "Giong";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="padding-top:40px;color:red;text-align:center">QUẢN LÝ GIỐNG</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themmoigiong")
+</p>
+<table class="table" border="2" style="color:#000000">
+    <tr>
+        <th  style="width:200px">Mã giống</th>
+        <th style="width:200px">Tên loại</th>
+        <th style="width:200px">Tên giống</th>
+        <th style="width:300px">Mô tả</th>
+        <th style="width:200px"></th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MAGIONG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LOAI.TENLOAI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TENGIONG)
+    </td>
+    <td>
+        @*@Truncate(item.MOTAG,100)*@
+        @Html.DisplayFor(modelItem => item.MOTAG)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Suagiong", new { id = item.MAGIONG }) |
+        @Html.ActionLink("Chi tiết", "Chitietgiong", new { id = item.MAGIONG }) |
+        @Html.ActionLink("Xóa", "Xoagiong", new { id = item.MAGIONG })
+    </td>
+</tr>
+    }
+
+</table>
+<p style="text-align:center">Trang @(Model.PageCount<Model.PageNumber? 0:Model.PageNumber)/@Model.PageCount</p>
+<div class="MenuTrang"style="text-align:center">
+    @Html.PagedListPager(Model, page => Url.Action("Giong", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #333;
+    }
+</style>
